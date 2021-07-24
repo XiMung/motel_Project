@@ -7,13 +7,12 @@ connectDatabase();
 const dotenv = require("dotenv");
 dotenv.config();
 
-const port = process.env.PORT || 1998;
 const app = express();
 
 app.use(helmet());
 app.use(express.json());
 
-
+const port = process.env.PORT || 1998;
 app.use("/api", apiRoute);
 
 
