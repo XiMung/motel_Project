@@ -1,0 +1,58 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "XiMung",
+    "title": "User",
+    "description": "",
+    "type": "object",
+    "properties": {
+        "title": {
+            "type": "string"
+        },
+        "description": {
+            "type": "string"
+        },
+        "address": {
+            "type": "string"
+        },
+        "image": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "verify": {
+            "type": "number"
+        },
+        "min_prince": {
+            "type": "number"
+        },
+        "min_area": {
+            "type": "number"
+        },
+        "point": {
+            "type": "number"
+        },
+        "reason": {
+            "type": "string"
+        },
+        "lat": {
+            "type": "number"
+        },
+        "long": {
+            "type": "number"
+        },
+        "userId": {
+            "type": "string"
+        },
+        "wardId": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "title",
+        "description",
+        "address",
+        "min_prince",
+        "min_area"
+    ]
+}
