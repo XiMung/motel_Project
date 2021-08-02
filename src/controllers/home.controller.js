@@ -11,15 +11,21 @@ module.exports = {
 async function create(req, res) {
     try {
         var body = req.body;
-        var schema = tv4.validateResult(body, HomeSchema, true, true);
-        if (!schema.valid) {
-            return res.status(400).json({ error: `${schema.error.dataPath}: ${schema.error.message}` });
-        }
+        // var schema = tv4.validateResult(body, HomeSchema, true, true);
+        // if (!schema.valid) {
+        //     return res.status(400).json({ error: `${schema.error.dataPath}: ${schema.error.message}` });
+        // }
         if (!body.title) return res.json({ error: true, message: "title empty" });
         if (!body.description) return res.json({ error: true, message: "description empty" });
         if (!body.address) return res.json({ error: true, message: "address empty" });
-        console.log(body.image.length);
-        if (body.image.length == 0) return res.json({ error: true, message: "image empty" });
+
+        var image = req.files;
+        if (image == 0) return res.json({ error: true, message: "image empty" });
+        var A = [];
+        for (let i = 0; i < image.length; i++) {
+            A[i] = image[i].filename;
+        }
+
         if (!body.min_prince) return res.json({ error: true, message: "min_prince empty" });
         if (!body.min_area) return res.json({ error: true, message: "min_area empty" });
         if (!body.userId) return res.json({ error: true, message: "userId empty" });
@@ -28,7 +34,7 @@ async function create(req, res) {
             title: body.title,
             description: body.description,
             address: body.address,
-            image: body.image,
+            image: A,
             verify: 0,
             min_prince: body.min_prince,
             min_area: body.min_area,
