@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-// var uniqueValidator = require('mongoose-unique-validator');
+var uniqueValidator = require('mongoose-unique-validator');
 const Schema = mongoose.Schema;
 
 var userShema = Schema({
@@ -16,7 +16,7 @@ var userShema = Schema({
 });
 
 
-// userShema.plugin(uniqueValidator, { message: 'is already taken.' });
+userShema.plugin(uniqueValidator, { message: 'is already taken.' });
 var userModel = mongoose.model("user", userShema);
 
 module.exports = {
