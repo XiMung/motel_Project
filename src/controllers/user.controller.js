@@ -69,7 +69,7 @@ async function register(req, res) {
         var data = await user.save();
         return res.json({ error: false, data: data });
     } catch (error) {
-        return res.json({ error: true, message: error });
+        return res.json({ error: true, message: error.message });
     }
 }
 
