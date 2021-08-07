@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 var roomShema = Schema({
-    prince: { type: Number, required: true },
+    price: { type: Number, required: true },
     deposit: { type: Number, required: true },
     homeId: {
         type: mongoose.Schema.Types.ObjectId,
@@ -14,6 +14,8 @@ var roomShema = Schema({
     image: { type: Array, require: true },
     description: { type: String, require: true },
     status: { type: Number, require: true }
+}, {
+    timestamps: true
 });
 
 

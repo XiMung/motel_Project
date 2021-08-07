@@ -1,0 +1,40 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "XiMung",
+    "title": "Room",
+    "description": "",
+    "type": "object",
+    "properties": {
+        "price": {
+            "type": "number"
+        },
+        "deposit": {
+            "type": "number"
+        },
+        "homeId": {
+            "type": "string"
+        },
+        "maximum": {
+            "type": "number"
+        },
+        "area": {
+            "type": "number"
+        },
+        "image": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "description": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "price",
+        "deposit",
+        "homeId",
+        "maximum",
+        "area"
+    ]
+}
