@@ -22,30 +22,30 @@ async function register(req, res) {
         }
         var email = req.body.username;
         if (!email) {
-            return res.json({ error: true, message: 'username empty' });
+            return res.json({ error: true, message: 'Username empty' });
         }
         if (!cons.paterEmail.test(email)) {
             res.json({
                 statuscode: 400,
-                message: "email not exist"
+                message: "Email not exist"
             });
             return;
         }
         var password = body.password;
         if (!password) {
-            return res.json({ error: true, message: 'password empty' });
+            return res.json({ error: true, message: 'Password empty' });
         }
         var role = body.role;
         if (!role) {
-            return res.json({ error: true, message: 'role empty' });
+            return res.json({ error: true, message: 'Role empty' });
         }
         var phone = body.phone;
         if (!phone) {
-            return res.json({ error: true, message: 'phone empty' });
+            return res.json({ error: true, message: 'Phone empty' });
         }
         var name = body.name;
         if (!name) {
-            return res.json({ error: true, message: 'name empty' });
+            return res.json({ error: true, message: 'Name empty' });
         }
 
         try {
@@ -53,7 +53,7 @@ async function register(req, res) {
                 .update(password)
                 .digest('hex');
         } catch (err) {
-            return res.json({ error: true, message: 'hash false: ' + err });
+            return res.json({ error: true, message: 'Hash false: ' + err });
         }
 
         password = hash;
@@ -79,14 +79,14 @@ async function login(req, res) {
         if (!email) {
             res.json({
                 statuscode: 400,
-                message: "bạn chưa nhập username"
+                message: "Username empty"
             });
             return;
         }
         if (!cons.paterEmail.test(email)) {
             res.json({
                 statuscode: 400,
-                message: "cú pháp mail của bạn không hợp lệ"
+                message: "Email Invalid syntax"
             });
             return;
         }
@@ -95,7 +95,7 @@ async function login(req, res) {
         if (!password) {
             res.json({
                 statuscode: 400,
-                message: "bạn chưa nhập password"
+                message: "Password empty"
             });
             return;
         }
@@ -115,10 +115,10 @@ async function login(req, res) {
                 }, cons.keyToken);
                 return res.json({ error: false, data: data, token: token });
             } else {
-                return res.json({ error: true, message: 'sai password đăng nhập' });
+                return res.json({ error: true, message: 'Password login false' });
             }
         } else {
-            return res.json({ error: true, message: 'sai email đăng nhập' });
+            return res.json({ error: true, message: 'Username login false' });
         }
     } catch (error) {
         return res.json({ error: true, message: error });

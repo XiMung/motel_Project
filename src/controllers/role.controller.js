@@ -10,7 +10,7 @@ async function create(req, res) {
     try {
         var name = req.body.name;
         if (!name) {
-            return res.json({ error: true, message: 'name empty' });
+            return res.json({ error: true, message: 'Name empty' });
         }
         var role = new roleModel({name: name});
         var data = await role.save();

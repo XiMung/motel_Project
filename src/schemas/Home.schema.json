@@ -23,7 +23,7 @@
         "verify": {
             "type": "number"
         },
-        "min_prince": {
+        "min_price": {
             "type": "number"
         },
         "min_area": {

@@ -7,7 +7,7 @@ var homeShema = Schema({
     address: { type: String, required: true },
     image: { type: Array },
     verify: { type: Number },
-    min_prince: { type: Number },
+    min_price: { type: Number },
     min_area: { type: Number },
     point: { type: Number },
     reason: { type: String },

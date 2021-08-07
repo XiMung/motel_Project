@@ -15,18 +15,18 @@ async function create(req, res) {
         // if (!schema.valid) {
         //     return res.status(400).json({ error: `${schema.error.dataPath}: ${schema.error.message}` });
         // }
-        if (!body.title) return res.json({ error: true, message: "title empty" });
-        if (!body.description) return res.json({ error: true, message: "description empty" });
-        if (!body.address) return res.json({ error: true, message: "address empty" });
+        if (!body.title) return res.json({ error: true, message: "Title empty" });
+        if (!body.description) return res.json({ error: true, message: "Description empty" });
+        if (!body.address) return res.json({ error: true, message: "Address empty" });
 
         var image = req.files;
-        if (image == 0) return res.json({ error: true, message: "image empty" });
+        if (image == 0) return res.json({ error: true, message: "Image empty" });
         var A = [];
         for (let i = 0; i < image.length; i++) {
             A[i] = image[i].filename;
         }
 
-        if (!body.min_prince) return res.json({ error: true, message: "min_prince empty" });
+        if (!body.min_price) return res.json({ error: true, message: "Min_price empty" });
         if (!body.min_area) return res.json({ error: true, message: "min_area empty" });
         if (!body.userId) return res.json({ error: true, message: "userId empty" });
         if (!body.wardId) return res.json({ error: true, message: "wardId empty" });
@@ -36,7 +36,7 @@ async function create(req, res) {
             address: body.address,
             image: A,
             verify: 0,
-            min_prince: body.min_prince,
+            min_price: body.min_price,
             min_area: body.min_area,
             point: body.point,
             reason: body.reason,
