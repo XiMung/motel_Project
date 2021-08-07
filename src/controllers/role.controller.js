@@ -3,7 +3,7 @@ var queryParser = require('../configs/queryParser');
 
 module.exports = {
     create: create,
-    getRole: getRole,
+    get: get,
 }
 
 async function create(req, res) {
@@ -12,7 +12,7 @@ async function create(req, res) {
         if (!name) {
             return res.json({ error: true, message: 'Name empty' });
         }
-        var role = new roleModel({name: name});
+        var role = new roleModel({ name: name });
         var data = await role.save();
         return res.json({ error: false, data: data });
     } catch (error) {
@@ -20,7 +20,7 @@ async function create(req, res) {
     }
 }
 
-async function getRole(req, res) {
+async function get(req, res) {
     try {
         var queryOptions = queryParser(req);
         if (queryOptions.error) {
@@ -34,7 +34,7 @@ async function getRole(req, res) {
             .find(queryOptions.$filter)
             .select(queryOptions.$select)
 
-            roleQuery = await roleQuery.exec();
+        roleQuery = await roleQuery.exec();
         var roles = JSON.parse(JSON.stringify(roleQuery));
 
         return res.json({ error: false, data: roles });
