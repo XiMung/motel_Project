@@ -23,12 +23,6 @@
         "verify": {
             "type": "number"
         },
-        "min_price": {
-            "type": "number"
-        },
-        "min_area": {
-            "type": "number"
-        },
         "point": {
             "type": "number"
         },
@@ -51,8 +45,6 @@
     "required": [
         "title",
         "description",
-        "address",
-        "min_price",
-        "min_area"
+        "address"
     ]
 }

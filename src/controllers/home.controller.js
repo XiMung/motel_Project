@@ -26,8 +26,8 @@ async function create(req, res) {
             A[i] = image[i].filename;
         }
 
-        if (!body.min_price) return res.json({ error: true, message: "Min_price empty" });
-        if (!body.min_area) return res.json({ error: true, message: "min_area empty" });
+        // if (!body.min_price) return res.json({ error: true, message: "Min_price empty" });
+        // if (!body.min_area) return res.json({ error: true, message: "min_area empty" });
         if (!body.userId) return res.json({ error: true, message: "userId empty" });
         if (!body.wardId) return res.json({ error: true, message: "wardId empty" });
         var query = {
@@ -36,8 +36,8 @@ async function create(req, res) {
             address: body.address,
             image: A,
             verify: 0,
-            min_price: body.min_price,
-            min_area: body.min_area,
+            // min_price: body.min_price,
+            // min_area: body.min_area,
             point: body.point,
             reason: body.reason,
             lat: body.lat,

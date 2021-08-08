@@ -1,4 +1,5 @@
 var { roomModel } = require("../models/room.model");
+var { homeModel } = require("../models/home.model");
 var queryParser = require('../configs/queryParser');
 const tv4 = require('tv4');
 const RoomSchema = require('../schemas/Room.shcema.json');
@@ -30,6 +31,8 @@ async function create(req, res) {
         if (!body.area) return res.json({ error: true, message: "Area empty" });
         // if (!body.status) return res.json({ error: true, message: "Status empty" });
         if (!body.homeId) return res.json({ error: true, message: "HomeId empty" });
+        var checkHome = await homeModel.findById(body.homeId);
+        if (!checkHome) return res.json({ error: true, message: "HomeId not exist" });
         var query = {
             price: body.price,
             description: body.description,
@@ -43,6 +46,7 @@ async function create(req, res) {
 
         var room = new roomModel(query);
         var data = await room.save();
+        await Min_priceAndMin_area(body.homeId);
         return res.json({ error: false, data: data });
     } catch (error) {
         return res.json({ error: true, message: error.message });
@@ -77,4 +81,28 @@ async function get(req, res) {
     } catch (error) {
         return res.json({ error: true, message: error });
     }
+}
+
+async function Min_priceAndMin_area(homeId) {
+    try {
+        var price = await roomModel.find({ homeId: homeId }).sort({ price: 1 }).select('price');
+        console.log(JSON.stringify(price));
+        if (!price) {
+            price = null;
+        } else {
+            price = price[0].price;
+        }
+
+        var area = await roomModel.find({ homeId: homeId }).sort({ area: 1 }).select('area');
+        if (!area) {
+            area = null;
+        } else {
+            area = area[0].area;
+        }
+
+        await homeModel.updateOne({ _id: homeId }, { min_price: price, min_area: area })
+    } catch (error) {
+        return res.json({ error: true, message: error.message });
+    }
+
 }
