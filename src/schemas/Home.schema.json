@@ -23,9 +23,6 @@
         "verify": {
             "type": "number"
         },
-        "point": {
-            "type": "number"
-        },
         "reason": {
             "type": "string"
         },

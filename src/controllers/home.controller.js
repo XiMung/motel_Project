@@ -38,7 +38,7 @@ async function create(req, res) {
             verify: 0,
             // min_price: body.min_price,
             // min_area: body.min_area,
-            point: body.point,
+            point: 0,
             reason: body.reason,
             lat: body.lat,
             long: body.long,
