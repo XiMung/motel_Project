@@ -11,10 +11,10 @@ module.exports = {
 async function create(req, res) {
     try {
         var body = req.body;
-        var schema = tv4.validateResult(body, HomeSchema, true, true);
-        if (!schema.valid) {
-            return res.status(400).json({ error: `${schema.error.dataPath}: ${schema.error.message}` });
-        }
+        // var schema = tv4.validateResult(body, HomeSchema, true, true);
+        // if (!schema.valid) {
+        //     return res.status(400).json({ error: `${schema.error.dataPath}: ${schema.error.message}` });
+        // }
         if (!body.title) return res.json({ error: true, message: "Title empty" });
         if (!body.description) return res.json({ error: true, message: "Description empty" });
         if (!body.address) return res.json({ error: true, message: "Address empty" });
