@@ -12,6 +12,8 @@ const app = express();
 app.use(helmet());
 app.use(express.json());
 
+app.use('/image', express.static(__dirname + '/src/public'));
+
 const port = process.env.PORT || 1998;
 app.use("/api", apiRoute);
 
