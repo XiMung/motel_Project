@@ -35,8 +35,11 @@
         "userId": {
             "type": "string"
         },
-        "appointment": {
-            "type": "object"
+        "from": {
+            "type": "string"
+        },
+        "to": {
+            "type": "string"
         }
     },
     "required": [
