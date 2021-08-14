@@ -35,8 +35,8 @@
         "userId": {
             "type": "string"
         },
-        "wardId": {
-            "type": "string"
+        "appointment": {
+            "type": "object"
         }
     },
     "required": [

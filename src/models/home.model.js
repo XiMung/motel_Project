@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 var homeShema = Schema({
     title: { type: String, required: true },
     description: { type: String, required: true },
-    address: { type: String, required: true },
+    // address: { type: String, required: true },
+    address: { type: Object },
     image: { type: Array },
     verify: { type: Number },
     min_price: { type: Number },
@@ -17,12 +18,9 @@ var homeShema = Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "user"
     },
-    wardId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "ward"
-    },
-    created_at: { type: Date },
-    updated_at: { type: Date }
+    appointment: { type: Object }
+}, {
+    timestamps: true
 });
 
 var homeModel = mongoose.model("home", homeShema);
