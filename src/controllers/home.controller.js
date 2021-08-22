@@ -36,7 +36,6 @@ async function create(req, res) {
             address: body.address,
             appointment: {from: body.from, to: body.to},
             image: A,
-            image: "",
             verify: 0,
             point: 0,
             reason: "",
