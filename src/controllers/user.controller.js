@@ -178,7 +178,7 @@ async function getAll(req, res) {
 };
 
 async function getOne(req, res) {
-    try {
+    try { 
         var queryOptions = queryParser(req);
         if (queryOptions.error) {
             return res.status(400).send(queryOptions.error);
