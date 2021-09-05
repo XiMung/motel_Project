@@ -156,7 +156,7 @@ async function getAll(req, res) {
         // var query = userModel.aggregate(queryStack);
 
 
-        var userQuery = userModel
+        var userQuery = userModel 
             .find(queryOptions.$filter)
             .select(queryOptions.$select)
             .limit(queryOptions.$top)
