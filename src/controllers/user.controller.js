@@ -164,7 +164,7 @@ async function getAll(req, res) {
             .sort(queryOptions.$sort)
 
         // userQuery = userQuery.populate({
-        //     path: 'role',
+        //     path: 'role', 
         //     select: '_id name'
         // })
 
